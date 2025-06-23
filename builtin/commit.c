@@ -1540,6 +1540,9 @@ struct repository *repo UNUSED)
 		OPT_SET_INT(0, "long", &status_format,
 			    N_("show status in long format (default)"),
 			    STATUS_FORMAT_LONG),
+		OPT_SET_INT(0, "json", &status_format,
+			    N_("show status in JSON format"),
+			    STATUS_FORMAT_JSON),
 		OPT_BOOL('z', "null", &s.null_termination,
 			 N_("terminate entries with NUL")),
 		{
