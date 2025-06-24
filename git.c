@@ -501,6 +501,8 @@ static int run_builtin(struct cmd_struct *p, int argc, const char **argv, struct
 }
 
 static struct cmd_struct commands[] = {
+	{ "undo", cmd_undo, RUN_SETUP },
+	
 	{ "add", cmd_add, RUN_SETUP | NEED_WORK_TREE },
 	{ "am", cmd_am, RUN_SETUP | NEED_WORK_TREE },
 	{ "annotate", cmd_annotate, RUN_SETUP },
@@ -649,6 +651,7 @@ static struct cmd_struct commands[] = {
 	{ "whatchanged", cmd_whatchanged, RUN_SETUP },
 	{ "worktree", cmd_worktree, RUN_SETUP },
 	{ "write-tree", cmd_write_tree, RUN_SETUP },
+	
 };
 
 static struct cmd_struct *get_builtin(const char *s)
