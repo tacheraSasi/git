@@ -1338,6 +1338,7 @@ BUILTIN_OBJS += builtin/verify-pack.o
 BUILTIN_OBJS += builtin/verify-tag.o
 BUILTIN_OBJS += builtin/worktree.o
 BUILTIN_OBJS += builtin/write-tree.o
+BUILTIN_OBJS += builtin/undo.o
 
 # THIRD_PARTY_SOURCES is a list of patterns compatible with the
 # $(filter) and $(filter-out) family of functions. They specify source

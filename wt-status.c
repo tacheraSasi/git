@@ -2564,7 +2564,6 @@ static void wt_porcelain_v2_print(struct wt_status *s)
 	}
 }
 
-
 static void wt_json_print_string_array(struct wt_status *s, const char *name, struct string_list *list)
 {
 	int i;
@@ -2588,7 +2587,7 @@ static void wt_json_print_change_array(struct wt_status *s, const char *name, in
 		it = &(s->change.items[i]);
 		d = it->util;
 
-		if ((change_type == WT_STATUS_UPDATED && d->index_status &&
+		if ((change_type == WT_STATUS_UPDATED && d->index_status && 
 		     d->index_status != DIFF_STATUS_UNMERGED) ||
 		    (change_type == WT_STATUS_CHANGED && d->worktree_status &&
 		     d->worktree_status != DIFF_STATUS_UNMERGED)) {

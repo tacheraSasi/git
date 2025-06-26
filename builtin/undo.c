@@ -8,8 +8,9 @@ static const char * const undo_usage[] = {
     NULL
 };
 
-int cmd_undo(int argc, const char **argv, const char *prefix)
+int cmd_undo(int argc, const char **argv, const char *prefix, struct repository *repo)
 {
+	(void)repo; // Mark as unused if not used in the function
     int hard = 0;
     struct option options[] = {
         OPT_BOOL(0, "hard", &hard, "Perform a hard reset (discard changes)"),
@@ -20,9 +21,15 @@ int cmd_undo(int argc, const char **argv, const char *prefix)
 
     if (hard) {
         const char *reset_args[] = { "reset", "--hard", "HEAD~1", NULL };
-        return run_command_v_opt(reset_args, RUN_GIT_CMD);
+        struct child_process cmd = CHILD_PROCESS_INIT;
+        cmd.argv = reset_args;
+        cmd.git_cmd = 1;
+        return run_command(&cmd);
     } else {
         const char *reset_args[] = { "reset", "--soft", "HEAD~1", NULL };
-        return run_command_v_opt(reset_args, RUN_GIT_CMD);
+        struct child_process cmd = CHILD_PROCESS_INIT;
+        cmd.argv = reset_args;
+        cmd.git_cmd = 1;
+        return run_command(&cmd);
     }
 }
