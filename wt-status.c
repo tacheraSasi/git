@@ -2588,7 +2588,7 @@ static void wt_json_print_change_array(struct wt_status *s, const char *name, in
 		it = &(s->change.items[i]);
 		d = it->util;
 
-		if ((change_type == WT_STATUS_UPDATED && d->index_status && 
+		if ((change_type == WT_STATUS_UPDATED && d->index_status &&
 		     d->index_status != DIFF_STATUS_UNMERGED) ||
 		    (change_type == WT_STATUS_CHANGED && d->worktree_status &&
 		     d->worktree_status != DIFF_STATUS_UNMERGED)) {
